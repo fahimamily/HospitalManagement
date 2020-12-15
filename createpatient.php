@@ -1,6 +1,18 @@
 <?php
-// Include config file
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
+
+<?php
+// Include config 
 require_once "config.php";
+
 // Define variables and initialize with empty values
 $patientid = $firstname = $lastname = $street = $city = $state = $zipcode = $phone = $email = $employeeid = "";
 $patientid_err = $firstname_err = $lastname_err = $street_err = $city_err = $state_err = $zipcode_err = $phone_err = $email_err = $employeeid_err = "";

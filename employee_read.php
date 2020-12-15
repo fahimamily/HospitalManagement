@@ -1,3 +1,14 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -43,6 +54,8 @@
                             <a href="employee_create.php" class="btn btn-primary" role="button">Add A New Employee</a>
 
                             <a href="employee_index.php" class="btn btn-primary" role="button">View All Employee</a>
+                            
+                            <a href="logout.php" class="btn btn-primary">Logout</a>
 
 
 

@@ -1,3 +1,14 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -42,7 +53,9 @@
 
 
                             <a href="employee_create.php" class="btn btn-primary" role="button">Add New Employee Information</a>
-
+          
+                            <a href="logout.php" class="btn btn-primary">Logout</a>
+    
 
 
                         </div>
@@ -82,8 +95,8 @@
                                     echo "<td>" . $row['email'] . "</td>";
                                     echo "<td>";
                                     echo "<a href='employee_read.php?employeeid=" . $row['employeeid'] . "' title='View Record' data-toggle='tooltip'><span class='btn btn-info btn-xs'>View Record</span></a>";
-                                    echo "<a href='update.php?employeeid=" . $row['employeeid'] . "' title='Update Record' data-toggle='tooltip'><span class='btn btn-warning btn-xs'>Update</span></a>";
-                                    echo "<a href='delete.php?employeeid=" . $row['employeeid'] . "' title='Delete Record' data-toggle='tooltip'><span class='btn btn-danger btn-xs'>Delete</span></a>";
+                                    echo "<a href='employee_update.php?employeeid=" . $row['employeeid'] . "' title='Update Record' data-toggle='tooltip'><span class='btn btn-warning btn-xs'>Update</span></a>";
+                                    echo "<a href='employee_delete.php?employeeid=" . $row['employeeid'] . "' title='Delete Record' data-toggle='tooltip'><span class='btn btn-danger btn-xs'>Delete</span></a>";
                                     echo "</td>";
                                     echo "</tr>";
                                 }

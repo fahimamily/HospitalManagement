@@ -14,7 +14,7 @@ body, html {
 .bgimg {
   background-position: center;
   background-size: cover;
-  background-image: url("https://image.shutterstock.com/z/stock-photo-empty-gurney-in-a-long-corridor-394445152.jpg");
+  background-image: url("https://static01.nyt.com/images/2017/02/16/well/doctors-hospital-design/doctors-hospital-design-jumbo.jpg?quality=90&auto=webp");
   min-height: 75%;
 }
 
@@ -28,14 +28,17 @@ body, html {
 <div class="w3-top">
   <div class="w3-row w3-padding w3-black">
     <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black">HOME</a>
-    </div>
-    <div class="w3-col s3">
         <a href="employee_index.php" class="w3-button w3-block w3-black">Employees</a>
     </div>
     <div class="w3-col s3">
       <a href="patients_index.php" class="w3-button w3-block w3-black">Patients</a>
     </div>
+        <div class="w3-col s3">
+      <a href="login.php" class="w3-button w3-block w3-black">Login</a>
+    </div>
+      <div class="w3-col s3">
+          <a href="logout.php" class="w3-button w3-block w3-black">Logout</a>
+      </div>
   </div>
 </div>
 
@@ -43,7 +46,7 @@ body, html {
 <header class="bgimg w3-display-container w3-grayscale-min" id="home">
 
   <div class="w3-display-middle w3-center">
-    <span class="w3-text-white" style="font-size:60px">Task<br>Hospital Services</span>
+    <b><span class="w3-text-white" style="font-size:70px">Task<br>Hospital Services</span><b>
   </div>
 
 </header>
@@ -65,17 +68,6 @@ body, html {
 <!-- Menu Container -->
 <div class="w3-container" id="Data">
   <div class="w3-content" style="max-width:700px">
- 
-    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">Manage Employees & Patients</span></h5>
-  
-    <div class="w3-row w3-center w3-card w3-padding">
-      <a href="javascript:void(0)" onclick="openMenu(event, 'Employees');" id="myLink">
-        <div class="w3-col s6 tablink">Employees</div>
-      </a>
-      <a href="javascript:void(0)" onclick="openMenu(event, 'Patients');">
-        <div class="w3-col s6 tablink">Patients</div>
-      </a>
-    </div>
 
     <div id="Excel" class="w3-container menu w3-padding-48 w3-card">
       <h5>Planning to put an Excel spreadsheet here for employee data</h5>
