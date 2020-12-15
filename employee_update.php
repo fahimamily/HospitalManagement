@@ -10,7 +10,7 @@ $firstname_err = $lastname_err = $street_err = $city_err = $state_err = $zipcode
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get hidden input value
     $employeeid = $_POST["employeeid"];
-
+    //echo json_encode($_POST);
     // Validate name
     $input_firstname = trim($_POST["firstname"]);
     if (empty($input_firstname)) {
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
    
        // Validate position
-    $input_position = trim($_POST["position"]);
+    $input_position = trim($_POST["Position"]);
     if (empty($input_position)) {
         $position_err = "Please enter position ";
     } else {
@@ -130,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Close connection
-    mysqli_close($link);
+  //  mysqli_close($link);
      
     // Check existence of id parameter before processing further
     if (isset($_GET["employeeid"]) && !empty(trim($_GET["employeeid"]))) {
@@ -155,13 +155,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
                     // Retrieve individual field value
-                    $employeeid = $row["employee id"];
-                    $firstname = $row["first name"];
-                    $lastname = $row["last name"];
+                    $employeeid = $row["employeeid"];
+                    $firstname = $row["firstname"];
+                    $lastname = $row["lastname"];
                     $street = $row["street"];
                     $city = $row["city"];
                     $state = $row["state"];
-                    $zipcode = $row["zip code"];
+                    $zipcode = $row["zipcode"];
                     $position = $row["position"];
                     $email = $row["email"];
                 } else {
@@ -220,12 +220,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                             <div class="form-group <?php echo (!empty($firstname_err)) ? 'has-error' : ''; ?>">
                                 <label>First Name</label>
-                                <input type="text" name="first name" class="form-control" value="<?php echo $firstname; ?>">
+                                <input type="text" name="firstname" class="form-control" value="<?php echo $firstname; ?>">
                                 <span class="help-block"><?php echo $firstname_err; ?></span>
                             </div>
                             <div class="form-group <?php echo (!empty($lastname_err)) ? 'has-error' : ''; ?>">
                                 <label>Last Name</label>
-                                <input type="text" name="last name" class="form-control" value="<?php echo $lastname; ?>">
+                                <input type="text" name="lastname" class="form-control" value="<?php echo $lastname; ?>">
                                 <span class="help-block"><?php echo $lastname_err; ?></span>
                             </div>
                              <div class="form-group <?php echo (!empty($street_err)) ? 'has-error' : ''; ?>">
@@ -245,7 +245,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                              <div class="form-group <?php echo (!empty($zipcode_err)) ? 'has-error' : ''; ?>">
                                 <label>Zip code</label>
-                                <input type="text" name="zip code" class="form-control" value="<?php echo $zipcode; ?>">
+                                <input type="text" name="zipcode" class="form-control" value="<?php echo $zipcode; ?>">
                                 <span class="help-block"><?php echo $zipcode_err; ?></span>
                             </div>
                              <div class="form-group <?php echo (!empty($position_err)) ? 'has-error' : ''; ?>">
